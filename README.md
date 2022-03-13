@@ -11,11 +11,9 @@ What I found was a bunch of articles on the theory, a lot of designs from a few 
 In the end I settled on [this design](https://www.prusaprinters.org/prints/57699), mostly because it looked fleshed out, I could get all the components easily and it was already supported in Klipper. I am using the version with bearings contacting the filament.
 
 ## Mounting and tuning
-I mounted the sensor on my Voron 2.4 at the beginning of the reverse bowden tube.
+I mounted the sensor on my Voron 2.4 at the beginning of the reverse bowden tube. I wanted to mount it closer to the toolhead, but there are some challenges. Namely, the sensors are sensitive to temperature, and bending of the filament in the reverse bowden can change the readings by putting differing pressure on the lever arm at different positions of the toolhead. Best compromise would be to mount the sensor at the very last point before the filament enters the chamber.
 
-I wanted to mount it closer to the toolhead, but there are some challenges. Namely, the sensors are sensitive to temperature, and bending of the filament in the reverse bowden can change the readings by putting differing pressure on the lever arm at different positions of the toolhead. Best compromise would be to mount the sensor at the very last point before the filament enters the chamber.
-
-Then I had to tune the distance between the sensor and nozzle. I got a rough measurement by pushing filament all the way in, snipping it at the sensor, pulling it out and measuring the length. This came out to roughly 128 cm. I would not trust this measurement.
+Then I had to tune the distance between the sensor and nozzle. I got a rough measurement by pushing filament all the way in, snipping it at the sensor, pulling it out and measuring the length. This came out to roughly 128 cm. Just to be sure, I disconnected my hotend, made a contrasting mark at the sensor and ordered the extruder to push filament until the marked piece came out. This came out to 128.5 cm from sensor to nozzle end, or roughly 126.5 cm from sensor to melt zone (Dragon HF). This distance did not work correctly, probably because there is a slight delay between the when the flow change should be activated and when it actually gets activated. No idea why at this moment.
 
 Since there is no "tuning tower"-style procedure for fine tuning this distance, I elected to brute-force my way to the correct value by printing a 3-wall, 0-infill, 80x80x20 mm cube (with a 1 mm brim for adhesion) for every 10 mm of the sensor-nozzle distance, starting at 128 cm and going lower with every iteration. Such a cube consumes roughly 2.5 meters of filament, so any compensation should start happening roughly in the middle of the print.
 
@@ -31,3 +29,6 @@ Same thing, slightly more favorable lighting
 
 ![20220312_195422](https://user-images.githubusercontent.com/61467766/158037774-55e325a7-fbdd-4a61-ab86-84714747be60.jpg)
 
+## Disclaimer
+I have been using the sensor for a grand total of 1 day at this point. No idea if these results are reliable in day-to-day printing.
+I also have not yet tuned EM, since this process messes with flow rate, the slicer-side EM might be a bit different than before (i.e. if your filament is really consistent, but has a nominal mean diameter of 1.72 mm, your tuned EM might be higher than usual. But since the filament width compensation expects 1.75 mm, it will try to overextrude, so your slicer-side EM should actually be a bit lower than expected.)
