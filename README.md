@@ -49,6 +49,8 @@ Also be aware that you might have to retune your EM with this mod. Since this pr
 
 It would also be beneficial to have at least 2 sensors working in unison to get a better measurement of the filament dimensions. Klipper is not ready for it yet though - maybe someone can add that into the existing module?
 
+Also, as the sensors work in analog, they are susceptible to electrical noise - a lowpass filter near the board input pins might be advisable. Or go with a digital solution in the first place.
+
 ## Charts! Data!
 I'll try to keep an up-to-date chart with various filament width logs here. At this time in a single chart, but I think it will become unreadable very quickly. I'll figure something out, probably.
 
