@@ -61,4 +61,5 @@ So far we have:
 4. ESUN ABS+ Fire Engine Red, old batch
 5. Prusament ASA Galaxy Black
 
-![log_alt_colors](https://user-images.githubusercontent.com/61467766/158890053-4ac1af5f-308e-49c5-95ac-8ea0ab78c788.JPG)
+![log_alt_colors](https://user-images.githubusercontent.com/61467766/158896189-59f3040e-d270-4e85-9973-1f519b22af2a.png)
+
