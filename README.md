@@ -29,6 +29,13 @@ Same thing, slightly more favorable lighting
 
 ![20220312_195422](https://user-images.githubusercontent.com/61467766/158037774-55e325a7-fbdd-4a61-ab86-84714747be60.jpg)
 
+## Logging
+Klipper's built/in compensation code allows logging the measured diameter. This is a bit clunky, as it just pastes the measurements into the console at the measured intervals (I use 1 mm, lowest possible distance), which then gets saved to klippy.log. From there, you can extract the data and plot the filament diameter...
+
+![quality_esun](https://user-images.githubusercontent.com/61467766/158818829-593c586c-c4db-4a67-b108-44cafe6ccd74.JPG)
+
+...yikes. This correlates well with the observed effects (wide band of overextrusion followed by a thin band of underextrusion). Notably, this is still within the "standard" tolerance of +-0.05 mm, so the filament technically passed the basic QC requirement. Varying the diameter this much over such short distances *does* produce visible artefacts on the print though, as demonstrated.
+
 ## Disclaimer
-I have been using the sensor for a grand total of 1 day at this point. No idea if these results are reliable in day-to-day printing.
+I have been using the sensor for a grand total of 3 days at this point. No idea if these results are reliable in day-to-day printing as of yet.
 I also have not yet tuned EM, since this process messes with flow rate, the slicer-side EM might be a bit different than before (i.e. if your filament is really consistent, but has a nominal mean diameter of 1.72 mm, your tuned EM might be higher than usual. But since the filament width compensation expects 1.75 mm, it will try to overextrude, so your slicer-side EM should actually be a bit lower than expected.)
