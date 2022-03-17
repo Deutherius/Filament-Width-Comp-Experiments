@@ -29,7 +29,7 @@ Shown below are 3 cubes, from the left:
 
 ![combined](https://user-images.githubusercontent.com/61467766/158037713-ae745871-b9af-4c21-8006-64adf1171f6a.jpg)
 
-Same thing, slightly more favorable lighting
+Keep in mind that this is the harshest possible lighting I could provide, direct overhead white LEDs. Same thing, slightly more favorable lighting
 
 ![20220312_195422](https://user-images.githubusercontent.com/61467766/158037774-55e325a7-fbdd-4a61-ab86-84714747be60.jpg)
 
