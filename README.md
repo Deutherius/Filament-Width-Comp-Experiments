@@ -8,7 +8,7 @@ You can see the prominent "Z-banding". After figuring out that it was indeed cau
 
 What I found was a bunch of articles on the theory, a lot of designs from a few years back... But absolutely no pictures of "before and after", or any concrete data on the accuracy/repeatability of the designs. Oh, and few comments saying that with modern filaments, it's not worth the effort because if you are within +-0.05 mm, you are fine. Go figure.
 
-In the end I settled on [this design](https://www.prusaprinters.org/prints/57699), mostly because it looked fleshed out, I could get all the components easily, it was cheap and it was already supported in Klipper. I am using the version with bearings contacting the filament. Total cost is below 3 €.
+In the end I settled on [this design](https://www.prusaprinters.org/prints/57699), mostly because it looked fleshed out, I could get all the components easily, it was cheap and it was already [supported in Klipper](https://www.klipper3d.org/Hall_Filament_Width_Sensor.html#hall-filament-width-sensor). I am using the version with bearings contacting the filament. Total cost is below 3 €.
 
 There is also Thomas Sanladerer's design, the [InFiDEL](https://www.prusaprinters.org/prints/57154-infiDANK). Requires a bit more hardware, but could probably be equally viable. 
 
