@@ -8,10 +8,14 @@ You can see the prominent "Z-banding". After figuring out that it was indeed cau
 
 What I found was a bunch of articles on the theory, a lot of designs from a few years back... But absolutely no pictures of "before and after", or any concrete data on the accuracy/repeatability of the designs. Oh, and few comments saying that with modern filaments, it's not worth the effort because if you are within +-0.05 mm, you are fine. Go figure.
 
-In the end I settled on [this design](https://www.prusaprinters.org/prints/57699), mostly because it looked fleshed out, I could get all the components easily and it was already supported in Klipper. I am using the version with bearings contacting the filament.
+In the end I settled on [this design](https://www.prusaprinters.org/prints/57699), mostly because it looked fleshed out, I could get all the components easily, it was cheap and it was already supported in Klipper. I am using the version with bearings contacting the filament. Total cost is below 3 €.
+
+There is also Thomas Sanladerer's design, the [InFiDEL](https://www.prusaprinters.org/prints/57154-infiDANK). Requires a bit more hardware, but could probably be equally viable. 
 
 ## Mounting and tuning
 I mounted the sensor on my Voron 2.4 at the beginning of the reverse bowden tube (at the filament spool). I wanted to mount it closer to the toolhead, but there are some challenges. Namely, the sensors are sensitive to temperature, and bending of the filament in the reverse bowden can change the readings by putting differing pressure on the lever arm at different positions of the toolhead. Best compromise would be to mount the sensor at the very last point before the filament enters the chamber.
+
+Next up, tuning the raw sensor values. I used a 1.5 mm allen key and a 2 mm drill bit (precise size verified with a micrometer), as is recommended in the guide. Fortunately, when filament was inserted, the values were corresponding with my measurements with an error on the order of units of micrometers. Pretty impressive. I tried multiple types of filament, all worked similarly well. If you have problems with this step, maybe consider the pre-tension spring being too strong and squishing the filament - I had to shorten mine a bit with snips to get good results. Also think about how the filament beds coming from the spool - ideally you want to measure it "from the sides" where it does not curve, since curving filament can put additional force on the measuring arm and skew the results.
 
 Then I had to tune the distance between the sensor and nozzle. I got a rough measurement by pushing filament all the way in, snipping it at the sensor, pulling it out and measuring the length. This came out to roughly 128 cm. Just to be sure, I disconnected my hotend, made a contrasting mark at the sensor and ordered the extruder to push filament until the marked piece came out. This came out to 128.5 cm from sensor to nozzle end, or roughly 126.5 cm from sensor to melt zone (Dragon HF).
 
