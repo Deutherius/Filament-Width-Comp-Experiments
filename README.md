@@ -50,13 +50,13 @@ Also be aware that you might have to retun your EM with this mod. Since this pro
 It would also be beneficial to have at least 2 sensors working in unison to get a better measurement of the filament dimensions. Klipper is not ready for it yet though - maybe someone can add that into the existing module?
 
 ## Charts! Data!
-I'll try to keep an up-to-date chart with various filament width logs here. At this time in a single chart, but I think it will become unreadable soon. I'll figure something out, probably.
+I'll try to keep an up-to-date chart with various filament width logs here. At this time in a single chart, but I think it will become unreadable very quickly. I'll figure something out, probably.
 
 So far we have:
 1. ESUN ABS+ Black, new batch
 2. Prusament PLA Mystic Green
 3. ESUN ABS+ Natural, new batch
 4. ESUN ABS+ Fire Engine Red, old batch
+5. Prusament ASA Galaxy Black
 
-![log_alt_colors](https://user-images.githubusercontent.com/61467766/158882988-a012d516-23ac-4c5b-8467-17270c5400e1.JPG)
-
+![log_alt_colors](https://user-images.githubusercontent.com/61467766/158890053-4ac1af5f-308e-49c5-95ac-8ea0ab78c788.JPG)
