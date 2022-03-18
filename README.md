@@ -51,6 +51,8 @@ Klipper's built-in compensation code allows logging the measured diameter. This 
 
 ...yikes. This correlates well with the observed effects (wide band of overextrusion followed by a thin band of underextrusion). Notably, this is still within the "standard" tolerance of +-0.05 mm, so the filament technically passed the basic QC requirement. Varying the diameter this much over such short distances *does* produce visible artefacts on the print though, as demonstrated. And even a cheap 3€ mechanical filament sensor can be used to fix the issue.
 
+Note - I would not completely trust the X axis. I made a few prints that required 5m of filament but only got ~2200 log entries (I use 1 mm measurement_interval). I have yet to determine whether the logging is time based, time-limited, or what else is going on, so just... Take the X axis with a grain of salt.
+
 ## Disclaimer
 I have been using the sensor for a grand total of 3 days at this point. No idea if these results are reliable in day-to-day printing as of yet. I have no idea about what accuracy/precision/repeatability to expect from the sensor, although the resolution seems to be about 1 micron. With good and consistent filaments, it is entirely possible that using the compensation would introduce more errors into the print than would otherwise be there, so use at your own risk*. Still, it makes my stash of esun ABS+ printable, so I am happy with it so far.
 
