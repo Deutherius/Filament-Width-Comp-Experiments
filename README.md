@@ -35,6 +35,15 @@ Keep in mind that this is the harshest possible lighting I could provide, direct
 
 These 3 were taken with a distance parameter of 124.5 cm, but really anything from around 123 to 128 cm was usable. Other tests with Prusament ASA gave me the best subjective result at 126.5 cm, which is the setting I ended up using globally. Since it is a distance between the sensor and the start of the melt zone, it makes sense to me.
 
+### Some updates
+
+Here is the print from the first image in this repo, plus the same thing with comp enabled
+
+![20220318_203013_rot](https://user-images.githubusercontent.com/61467766/159078096-7565f3bf-4499-4a3f-aa4d-a0bedceb52fe.jpg)
+![20220318_204637](https://user-images.githubusercontent.com/61467766/159075490-897aa232-eb80-42aa-82c8-d49129ce0338.jpg)
+
+It's far from perfect, but I am happy with it
+
 ## Logging
 Klipper's built-in compensation code allows logging the measured diameter. This is a bit clunky, as it just pastes the measurements into the console at the measured intervals (I use 1 mm, lowest possible distance), which then gets saved to klippy.log. From there, you can extract the data and plot the filament diameter...
 
@@ -43,7 +52,7 @@ Klipper's built-in compensation code allows logging the measured diameter. This 
 ...yikes. This correlates well with the observed effects (wide band of overextrusion followed by a thin band of underextrusion). Notably, this is still within the "standard" tolerance of +-0.05 mm, so the filament technically passed the basic QC requirement. Varying the diameter this much over such short distances *does* produce visible artefacts on the print though, as demonstrated. And even a cheap 3€ mechanical filament sensor can be used to fix the issue.
 
 ## Disclaimer
-I have been using the sensor for a grand total of 3 days at this point. No idea if these results are reliable in day-to-day printing as of yet. I have no idea about what accuracy/precision/repeatability to expect from the sensor, although the resolution seems to be about 1 micron. With good and consistent filaments, it is entirely possible that using the compensation would introduce more errors into the print than would otherwise be there, so use at your own risk. Still, it makes my stash of esun ABS+ printable, so I am happy with it so far.
+I have been using the sensor for a grand total of 3 days at this point. No idea if these results are reliable in day-to-day printing as of yet. I have no idea about what accuracy/precision/repeatability to expect from the sensor, although the resolution seems to be about 1 micron. With good and consistent filaments, it is entirely possible that using the compensation would introduce more errors into the print than would otherwise be there, so use at your own risk*. Still, it makes my stash of esun ABS+ printable, so I am happy with it so far.
 
 Also be aware that you might have to retune your EM with this mod. Since this process messes with flow rate, the slicer-side EM might be a bit different than before, i.e. if your filament is really consistent, but has a nominal mean diameter of 1.72 mm, your prints will look great, but your tuned EM might be higher than usual. The filament width compensation, however, expects 1.75 mm, so it will try to overextrude when it sees 1.72 mm. As a result, your slicer-side EM would actually need to be a bit lower than expected in this hypothetical example to get good prints.
 
@@ -63,3 +72,11 @@ So far we have:
 
 ![log_alt_colors](https://user-images.githubusercontent.com/61467766/158896189-59f3040e-d270-4e85-9973-1f519b22af2a.png)
 
+## Effects on good filament
+
+So what if you only run good filament? Do you need a filament width sensor? This is a test piece made from Prusament Galaxy Black ASA - you can see in the chart above that this filament has good diameter tolerances and stability. What does the compensation do with such a filament? You be the judge:
+
+![20220318_210720](https://user-images.githubusercontent.com/61467766/159076478-7d08dc91-3a74-46aa-9fec-78019e3430f0.jpg)
+![20220318_201029](https://user-images.githubusercontent.com/61467766/159076545-25f2d11f-6f92-41a5-be7d-bbc84cf82970.jpg)
+
+In my opinion, not much, really. I can see a small improvement from halfway up if I squint really hard, but that could easily be chalked up to crappy EM tuning on my part (which the compensation fixes). Don't expect miracles, after all, this is still a robotic hot glue gun. At least the compensation doesn't seem to degrade the quality, which is a nice peace of mind.
