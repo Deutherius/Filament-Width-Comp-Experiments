@@ -63,7 +63,7 @@ It would also be beneficial to have at least 2 sensors working in unison to get 
 Also, as the sensors work in analog, they are susceptible to electrical noise - a lowpass filter near the board input pins might be advisable. Or go with a digital solution in the first place.
 
 ## Charts! Data!
-I'll try to keep an up-to-date chart with various filament width logs here. At this time in a single chart, but I think it will become unreadable very quickly. I'll figure something out, probably.
+I'll try to keep an up-to-date chart with various filament width logs here. Click on the chart to get an interactive live version.
 
 So far we have:
 1. ESUN ABS+ Black, new batch
@@ -72,7 +72,7 @@ So far we have:
 4. ESUN ABS+ Fire Engine Red, old batch
 5. Prusament ASA Galaxy Black
 
-![log_alt_colors](https://user-images.githubusercontent.com/61467766/158896189-59f3040e-d270-4e85-9973-1f519b22af2a.png)
+[![FilDiaLogGraph_snapshot_22032022](https://user-images.githubusercontent.com/61467766/159485765-c6240626-c76b-468a-8b6e-4f09298b08ed.png)](https://deutherius.github.io/PlotlyDeploy/)
 
 ## Effects on good filament
 
