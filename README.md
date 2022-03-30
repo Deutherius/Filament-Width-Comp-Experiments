@@ -45,7 +45,7 @@ Here is the print from the first image in this repo, plus the same thing with co
 It's far from perfect, but I am happy with it
 
 ## Logging
-Klipper's built-in compensation code allows logging the measured diameter. This is a bit clunky, as it just pastes the measurements into the console at the measured intervals (I use 1 mm, lowest possible distance), which then gets saved to klippy.log. From there, you can extract the data and plot the filament diameter...
+Klipper's built-in compensation code allows logging the measured diameter. This is a bit clunky, as it just pastes the measurements into the console at the measured intervals (~~I use 1 mm, lowest possible distance~~ **do not use 1 mm, see appendix B**), which then gets saved to klippy.log. From there, you can extract the data and plot the filament diameter...
 
 ![quality_esun](https://user-images.githubusercontent.com/61467766/158818829-593c586c-c4db-4a67-b108-44cafe6ccd74.JPG)
 
@@ -64,6 +64,8 @@ Also, as the sensors work in analog, they are susceptible to electrical noise - 
 
 ## Charts! Data!
 I'll try to keep an up-to-date chart with various filament width logs here. Click on the chart to get an interactive live version.
+### UPDATE - CAUTION
+I found that the logs are a bit wrong - on the X axis, the units are definitely not mm, thez are more like 2.533 mm for each sample. Filaments are still comparable within this chart, just note that the trends you see in them are longer than appears at first glance. (Reason for this is in Appendix A)
 
 So far we have:
 1. ESUN ABS+ Black, new batch
@@ -82,3 +84,27 @@ So what if you only run good filament? Do you need a filament width sensor? This
 ![20220318_201029](https://user-images.githubusercontent.com/61467766/159076545-25f2d11f-6f92-41a5-be7d-bbc84cf82970.jpg)
 
 In my opinion, not much, really. I can see a small improvement from halfway up if I squint really hard, but that could easily be chalked up to crappy EM tuning on my part (which the compensation fixes). Don't expect miracles, after all, this is still a robotic hot glue gun. At least the compensation doesn't seem to degrade the quality, which is a nice peace of mind.
+
+##Appendix A - Log frequency
+I noticed that for the test boxes, I was getting roughly 2-3x less samples than expected. This is because the algorithm can't update the values (and report them to console, which happens in the same function) while a gcode line is executing. If I extrude less than or equal amount of filament with
+```
+M83
+G1 E<distance> F<speed>
+```
+compared to the defined measurement distance, I get perfectly fine log reports. i,e, set measurement distance to 10, do 10x 1mm extrudes, get 1 log report. Do 2x 5mm extrudes, get 1 log report. Do 1x 10mm extrude, get 1 log report. However, if I overshoot the measurement distance, e.g. with 1x 25mm extrude, I only get 1 log report even when I was expecting 2. Funnily enough, when this 25mm extrude finishes, I need to do another 10x 1mm extrudes to get another log report.
+
+Retracts seem to work fine too, if I do 3x 25mm retract, then extrude 7x 10mm and 1x 5mm, I need to do another 10 mm to get the next log report
+It also seems that the algorithm correctly remembers the last reported position, since extrude 50 mm (gives 1 log report), retract 50 mm and then extrude 5x 10 mm does not give me new log reports - but the next 10 mm extrude does.
+
+This is the reason why my test boxes get 2-3x less samples than expected - each wall is 80 mm long, each line is 0.2 mm high and 0.38 mm wide. 80\*0.2\*0.38 = 6.08 mm^3, which is roughly 2.5333 mm.
+
+##Appendix B - measurement distance
+I noticed that while all of my test boxes came out exactly as expected, if I started a real print, the filament width compensation algorithm broke. I did a multitude of tests and this behavior was consistent - consecutive test boxes came out great, real print, next box was completely trash, as if the algorithm threw out random values. Every time, regardless of how many test boxes were printed before the real print.
+
+I thought maybe my print speeds were overwhelming the algorithm, so I printed the real print capped at 1 mm/s (2.4 mm^3/s). No dice, same behavior.
+
+Then I tried completely disabling retractions and pressure advance along with retractions in custom macros... Nope, still broken.
+
+Finally I set the measurement distance back to the stock value, 10 mm - problem disappeared. Tested with an additional real print and the box after it came out great.
+
+I have no idea what causes this behavior as of yet, or whether the stock 10 mm measurement distance works or just breaks down much slower.
