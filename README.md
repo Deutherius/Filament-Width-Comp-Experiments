@@ -85,7 +85,7 @@ So what if you only run good filament? Do you need a filament width sensor? This
 
 In my opinion, not much, really. I can see a small improvement from halfway up if I squint really hard, but that could easily be chalked up to crappy EM tuning on my part (which the compensation fixes). Don't expect miracles, after all, this is still a robotic hot glue gun. At least the compensation doesn't seem to degrade the quality, which is a nice peace of mind.
 
-##Appendix A - Log frequency
+## Appendix A - Log frequency
 I noticed that for the test boxes, I was getting roughly 2-3x less samples than expected. This is because the algorithm can't update the values (and report them to console, which happens in the same function) while a gcode line is executing. If I extrude less than or equal amount of filament with
 ```
 M83
@@ -98,7 +98,7 @@ It also seems that the algorithm correctly remembers the last reported position,
 
 This is the reason why my test boxes get 2-3x less samples than expected - each wall is 80 mm long, each line is 0.2 mm high and 0.38 mm wide. 80\*0.2\*0.38 = 6.08 mm^3, which is roughly 2.5333 mm.
 
-##Appendix B - measurement distance
+## Appendix B - measurement distance
 I noticed that while all of my test boxes came out exactly as expected, if I started a real print, the filament width compensation algorithm broke. I did a multitude of tests and this behavior was consistent - consecutive test boxes came out great, real print, next box was completely trash, as if the algorithm threw out random values. Every time, regardless of how many test boxes were printed before the real print.
 
 I thought maybe my print speeds were overwhelming the algorithm, so I printed the real print capped at 1 mm/s (2.4 mm^3/s). No dice, same behavior.
