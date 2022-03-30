@@ -65,7 +65,7 @@ Also, as the sensors work in analog, they are susceptible to electrical noise - 
 ## Charts! Data!
 I'll try to keep an up-to-date chart with various filament width logs here. Click on the chart to get an interactive live version.
 ### UPDATE - CAUTION
-I found that the logs are a bit wrong - on the X axis, the units are definitely not mm, thez are more like 2.533 mm for each sample. Filaments are still comparable within this chart, just note that the trends you see in them are longer than appears at first glance. (Reason for this is in Appendix A)
+I found that the logs are a bit wrong - on the X axis, the units are definitely not mm, they are more like 2.533 mm for each sample. Filaments are still comparable within this chart, just note that the trends you see in them are longer than appears at first glance. (Reason for this is in Appendix A)
 
 So far we have:
 1. ESUN ABS+ Black, new batch
